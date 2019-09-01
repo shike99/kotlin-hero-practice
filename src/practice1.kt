@@ -1,3 +1,5 @@
+package practice1
+
 import java.io.PrintWriter
 
 val pw = PrintWriter(System.out)
@@ -24,9 +26,21 @@ fun func() {
         return
     }
 
-    for (i in 1..subtractionNumber) {
+    repeat(subtractionNumber) {
         if (subtractionTarget.toString().last() === '0') subtractionTarget /= 10 else subtractionTarget--
     }
 
     pw.println(subtractionTarget)
+}
+
+fun other() {
+    val args = readLine()!!.split(" ").map { it.toInt() }
+    var n = args[0]
+    val k = args[1]
+
+    repeat(k) {
+        if (n % 10 === 0) n /= 10 else n--
+    }
+
+    pw.println(n)
 }
