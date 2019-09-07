@@ -19,27 +19,19 @@ fun func() {
     val reordered = mutableListOf<BigDecimal>()
 
     for (x in order) {
-        if (x % 3 === 0.toBigDecimal() && (x / 3 * 2) % 3 === 0.toBigDecimal()) {
-            reordered.add(x)
-            break
-        }
-    }
-    if (reordered.size === 0) {
-        for (x in order) {
-            if (x % 3 === 0.toBigDecimal()) {
-                reordered.add(x)
+        reordered.add(x)
+        while (order.size !== reordered.size) {
+            val div = order.find { reordered.last() % 3 == 0.toBigDecimal() && it == reordered.last() / 3 }
+            val mul = order.find { it == reordered.last() * 2 }
+            if (mul === null && div === null) {
+                reordered.clear()
                 break
             }
-        }
-    }
-
-    while (order.size !== reordered.size) {
-        val mul = order.find { it == reordered.last() * 2 }
-        val div = order.find { it == reordered.last() / 3 }
-        if (mul !== null) {
-            reordered.add(mul)
-        } else if (div !== null) {
-            reordered.add(div)
+            if (div !== null) {
+                reordered.add(div)
+            } else if (mul !== null) {
+                reordered.add(mul)
+            }
         }
     }
 

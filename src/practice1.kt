@@ -4,7 +4,7 @@ import java.io.PrintWriter
 
 val pw = PrintWriter(System.out)
 fun main(args: Array<String>) {
-    func()
+    other()
     pw.flush()
 }
 
