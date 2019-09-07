@@ -2,10 +2,10 @@ package practice2
 
 import java.io.PrintWriter
 
-val pr = PrintWriter(System.out)
+val pw = PrintWriter(System.out)
 fun main() {
     func()
-    pr.flush()
+    pw.flush()
 }
 
 fun func() {
@@ -17,5 +17,5 @@ fun func() {
         val count = output[key] ?: 0
         output[key] = count + 1
     }
-    pr.println(output.toList().sortedByDescending { it.second }[0].first)
+    pw.println(output.toList().sortedByDescending { it.second }[0].first)
 }

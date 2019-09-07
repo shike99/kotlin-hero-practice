@@ -2,10 +2,10 @@ package practice3
 
 import java.io.PrintWriter
 
-val pr = PrintWriter(System.out)
+val pw = PrintWriter(System.out)
 fun main() {
     func()
-    pr.flush()
+    pw.flush()
 }
 
 fun func() {
